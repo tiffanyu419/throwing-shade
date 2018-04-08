@@ -16,7 +16,7 @@ class Shades(object):
     @cherrypy.expose
     def up(self):
         command = "python2 -c 'import control_shades; control_shades.move_up()"
-        result = subprocess.Popen(command)
+        result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
         return
 
 if __name__=='__main__':
