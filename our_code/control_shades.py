@@ -102,4 +102,10 @@ def move_up():
     atexit.register(turnOffMotors)
     myStepper = mh.getStepper(200, 1)
     myStepper.setSpeed(50)
-    myStepper.step(10, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.MICROSTEP)
+    myStepper.step(40, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.MICROSTEP)
+
+def move_down():
+    atexit.register(turnOffMotors)
+    myStepper = mh.getStepper(200, 1)
+    myStepper.setSpeed(50)
+    myStepper.step(40, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.MICROSTEP)
