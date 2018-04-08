@@ -21,7 +21,7 @@ def main():
 		print"To quit out of the program, please type 'q'"
 		command = raw_input(">> ")
 		if command == 'm':
-			cur_state = control_shades.test_shades(cur_state)
+			cur_state = control_shades.test_shades(cur_state, init_state)
 		elif command == 'i':
 			init_state = initialization.initialization()
 			cur_state = init_state
