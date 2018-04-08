@@ -52,13 +52,13 @@ def test_shades(cur_state, init_state):
         else:
             print("Invalid Command")
     return cur_state
-    
-	
+
+
 
 # function to roll the shades completely up during intialization
 def initialize_up():
 	atexit.register(turnOffMotors)
-	myStepper = mh.getStepper(200, 1)   
+	myStepper = mh.getStepper(200, 1)
 	myStepper.setSpeed(60)
 	stop = False
 	print("Press enter to move the shade up. Press q when shade is all rolled up")
@@ -72,7 +72,7 @@ def initialize_up():
 # function to roll the shades down to count number of steps to completely roll down shades
 def initialize_down():
 	atexit.register(turnOffMotors)
-	myStepper = mh.getStepper(200, 1)  
+	myStepper = mh.getStepper(200, 1)
 	myStepper.setSpeed(60)
 	stop = False
 	print("Press enter to move the shade down. Press q when shade is completely down")
@@ -91,11 +91,14 @@ def move_shades(direction, current, dest):
 	steps = abs(dest - current)
 	atexit.register(turnOffMotors)
 	myStepper = mh.getStepper(200, 1)
-	myStepper.setSpeed(50)  
-	if direction == "up":        
+	myStepper.setSpeed(50)
+	if direction == "up":
 		myStepper.step(steps, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.MICROSTEP)
 	else:
 		myStepper.step(steps, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.MICROSTEP)
 
-
-
+def move_up():
+    atexit.register(turnOffMotors)
+    myStepper = mh.getStepper(200, 1)
+	myStepper.setSpeed(50)
+    myStepper.step(10, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.MICROSTEP)
