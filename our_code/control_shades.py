@@ -97,8 +97,9 @@ def move_shades(direction, current, dest):
 	else:
 		myStepper.step(steps, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.MICROSTEP)
 
+# function to roll shades up
 def move_up():
     atexit.register(turnOffMotors)
     myStepper = mh.getStepper(200, 1)
-	myStepper.setSpeed(50)
+    myStepper.setSpeed(50)
     myStepper.step(10, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.MICROSTEP)
