@@ -19,14 +19,14 @@ class StringGenerator(object):
         </html>"""
 
     @cherrypy.expose
-    def generate(self, count, length):
+    def generate(self, length):
         some_string = ''.join(random.sample(string.hexdigits, int(length)))
         cherrypy.session[count] = some_string
         count += 1
         return some_string
 
     @cherrypy.expose
-    def display(self, count):
+    def display(self):
         for i in range(count):
             return cherrypy.session[i]
 
