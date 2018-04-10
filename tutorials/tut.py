@@ -22,7 +22,7 @@ class StringGenerator(object):
     def generate(self, length=8, count):
         some_string = ''.join(random.sample(string.hexdigits, int(length)))
         cherrypy.session[count] = some_string
-        count ++;
+        count += 1
         return some_string
 
     @cherrypy.expose
