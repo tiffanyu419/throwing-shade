@@ -1,6 +1,6 @@
 import cherrypy
 import subprocess
-text = """
+control_text = """
 <html><body>
 <form method="get" action="up">
 <button type="submit">up</button>
@@ -14,7 +14,7 @@ text = """
 class Shades(object):
     @cherrypy.expose
     def index(self):
-        return text.format("")
+        return control_text.format("")
 
     @cherrypy.expose
     def up(self):
