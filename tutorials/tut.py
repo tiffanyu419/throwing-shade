@@ -27,9 +27,8 @@ class StringGenerator(object):
 
     @cherrypy.expose
     def display(self):
-        for i in range(StringGenerator.count):
-            return cherrypy.session[i]
-
+        return StringGenerator.count
+        
 
 
 if __name__ == '__main__':
