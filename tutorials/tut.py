@@ -7,6 +7,7 @@ import cherrypy
 class StringGenerator(object):
     @cherrypy.expose
     def index(self):
+        count = 0
         return """<html>
           <head></head>
           <body>
