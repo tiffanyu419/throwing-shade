@@ -21,13 +21,13 @@ class StringGenerator(object):
     @cherrypy.expose
     def generate(self, length):
         some_string = ''.join(random.sample(string.hexdigits, int(length)))
-        cherrypy.session[count] = some_string
-        count += 1
+        cherrypy.session[StringGenerator.count] = some_string
+        StringGenerator.count += 1
         return some_string
 
     @cherrypy.expose
     def display(self):
-        for i in range(count):
+        for i in range(StringGenerator.count):
             return cherrypy.session[i]
 
 
