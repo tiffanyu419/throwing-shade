@@ -18,14 +18,17 @@ class StringGenerator(object):
         </html>"""
 
     @cherrypy.expose
-    def generate(self, length=8):
+    def generate(self, length=8, count):
         some_string = ''.join(random.sample(string.hexdigits, int(length)))
-        cherrypy.session['mystring'] = some_string
+        cherrypy.session[count] = some_string
+        count ++;
         return some_string
 
     @cherrypy.expose
-    def display(self):
-        return cherrypy.session['mystring']
+    def display(self, count):
+        for i in range(count):
+            return cherrypy.session[i]
+
 
 
 if __name__ == '__main__':
