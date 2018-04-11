@@ -103,19 +103,27 @@ def allDown(current, dest):
 
 # function to roll shades up incrementally
 def move_up(count):
+    if (count-40) < 0:
+        steps = count
+    else:
+        steps = 40
     atexit.register(turnOffMotors)
     myStepper = mh.getStepper(200, 1)
     myStepper.setSpeed(50)
-    myStepper.step(40, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.MICROSTEP)
-    count -=40
+    myStepper.step(steps, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.MICROSTEP)
+    count -=steps
     print count
 
 
 # function to roll shades up incrementally
-def move_down(count):
+def move_down(count, max):
+    if (count+40) > max:
+        steps = max - count
+    else:
+        steps = 40
     atexit.register(turnOffMotors)
     myStepper = mh.getStepper(200, 1)
     myStepper.setSpeed(50)
-    myStepper.step(40, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.MICROSTEP)
-    count += 40
+    myStepper.step(steps, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.MICROSTEP)
+    count += steps
     print count
