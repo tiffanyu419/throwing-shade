@@ -17,7 +17,7 @@ class Shades(object):
     def index(self):
         return control_text.format("")
 
-    @cherrypy.expose
+    #@cherrypy.expose
     def up(self):
         #command = "python2 -c 'import control_shades; control_shades.move_up()'"
         command = "python2 -c 'import control_shades; control_shades.move_up(" +str(Shades.count)+")'"
@@ -25,7 +25,7 @@ class Shades(object):
         Shades.count = result.returncode
         return "Current state:" + str(Shades.count)
 
-    @cherrypy.expose
+    #@cherrypy.expose
     def down(self):
         #command = "python2 -c 'import control_shades; control_shades.move_down()'"
         command = "python2 -c 'import control_shades; control_shades.move_down("+str(Shades.count)+")'"
