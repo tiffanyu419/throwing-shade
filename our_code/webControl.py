@@ -44,7 +44,7 @@ class Shades(object):
     @cherrypy.expose
     def allDown(self):
         var = ["0", str(Shades.current), str(Shades.max)]
-        command = "python2 -c 'import control_shades; control_shades.move_shades("+", ".join(var)+")'"
+        command = "python2 -c 'import control_shades; control_shades.allDown("+", ".join(var)+")'"
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
         Shades.current = Shades.max
         return str(Shades.current)
@@ -52,7 +52,7 @@ class Shades(object):
     @cherrypy.expose
     def allUp(self):
         var = ["1", str(Shades.current), "0"]
-        command = "python2 -c 'import control_shades; control_shades.move_shades("+", ".join(var)+")'"
+        command = "python2 -c 'import control_shades; control_shades.allUp("+", ".join(var)+")'"
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
         Shades.current = 0
         return str(Shades.current)
