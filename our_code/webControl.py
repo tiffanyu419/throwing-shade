@@ -1,7 +1,11 @@
+import os, os.path
 import cherrypy
 import subprocess
+
 control_text = """
-<html><body>
+<html>
+<head><link rel="stylesheet" type="text/css" href="style.css"></head>
+<body>
 <form method="get" action="up">
 <button type="submit">up</button>
 </form>
@@ -60,4 +64,14 @@ class Shades(object):
 
 if __name__=='__main__':
     cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8181})
-    cherrypy.quickstart(Shades())
+    conf = {
+        '/': {
+            'tools.sessions.on': True,
+            'tools.staticdir.root': os.path.abspath(os.getcwd())
+        },
+        '/static': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': './Desktop/throwing-shade/our_code'
+        }
+    }
+    cherrypy.quickstart(Shades(), '/', conf)
