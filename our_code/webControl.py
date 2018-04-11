@@ -4,16 +4,20 @@ import subprocess
 
 control_text = """
 <html>
-<head><link href="/static/style.css" rel="stylesheet"></head>
+<head>
+<link href="/static/style.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<html>
+</head>
 <body>
+<form method="get" class="btn btn-default" action="allUp">
+<button type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
+</form>
 <form method="get" action="up">
 <button type="submit">up</button>
 </form>
 <form method="get" action="down">
 <button type="submit">down</button>
-</form>
-<form method="get" action="allUp">
-<button type="submit">allUp</button>
 </form>
 <form method="get" action="allDown">
 <button type="submit">allDown</button>
