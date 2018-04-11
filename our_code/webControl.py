@@ -51,7 +51,7 @@ class Shades(object):
 
     @cherrypy.expose
     def allUp(self):
-        var = ["1", str(Shades.current), 0]
+        var = ["1", str(Shades.current), "0"]
         command = "python2 -c 'import control_shades; control_shades.move_shades("+", ".join(var)+")'"
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
         Shades.current = 0
