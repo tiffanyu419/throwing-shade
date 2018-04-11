@@ -4,7 +4,7 @@ import subprocess
 
 control_text = """
 <html>
-<head><link rel="stylesheet" type="text/css" href="style.css"></head>
+<head><link href="/static/style.css" rel="stylesheet"></head>
 <body>
 <form method="get" action="up">
 <button type="submit">up</button>
