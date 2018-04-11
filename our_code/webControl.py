@@ -50,13 +50,13 @@ class Shades(object):
         return str(Shades.current)
 
     @cherrypy.expose
-    def allDown(self):
+    def allUp(self):
         var = ["up", str(Shades.current), "0"]
         command = "python2 -c 'import control_shades; control_shades.move_shades("+", ".join(var)+")'"
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
         Shades.current = 0
         return str(Shades.current)
-        
+
 if __name__=='__main__':
     cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8181})
     cherrypy.quickstart(Shades())
