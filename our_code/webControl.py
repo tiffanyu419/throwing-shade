@@ -12,21 +12,24 @@ control_text = """
 """
 
 class Shades(object):
+    count = 0
     @cherrypy.expose
     def index(self):
         return control_text.format("")
 
     @cherrypy.expose
     def up(self):
-        command = "python2 -c 'import control_shades; control_shades.move_up()'"
-        result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
-        return
+        #command = "python2 -c 'import control_shades; control_shades.move_up()'"
+        command = "python2 -c 'import control_shades; control_shades.move_up(count)'"
+        count = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+        return str(count)
 
     @cherrypy.expose
     def down(self):
-        command = "python2 -c 'import control_shades; control_shades.move_down()'"
-        result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
-        return
+        #command = "python2 -c 'import control_shades; control_shades.move_down()'"
+        command = "python2 -c 'import control_shades; control_shades.move_down(count)'"
+        count = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+        return str(count)
 
 if __name__=='__main__':
     cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8181})
