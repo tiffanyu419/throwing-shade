@@ -104,8 +104,8 @@ def move_up(count):
     myStepper.setSpeed(50)
     myStepper.step(40, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.MICROSTEP)
     count -=40
-    print count
-    return
+
+    return count
 
 # function to roll shades up incrementally
 def move_down(count):
@@ -114,5 +114,5 @@ def move_down(count):
     myStepper.setSpeed(50)
     myStepper.step(40, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.MICROSTEP)
     count += 40
-    print count
+    return count
     return
