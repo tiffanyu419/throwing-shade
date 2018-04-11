@@ -13,14 +13,14 @@ control_text = """
 <form method="get" class="btn btn-default" action="allUp">
 <button type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
 </form>
-<form method="get" action="up">
-<button type="submit">up</button>
+<form method="get" class="btn btn-default" action="up">
+<button type="submit"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></button>
 </form>
-<form method="get" action="down">
-<button type="submit">down</button>
+<form method="get" class="btn btn-default" action="down">
+<button type="submit"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></button>
 </form>
-<form method="get" action="allDown">
-<button type="submit">allDown</button>
+<form method="get" class="btn btn-default" action="allDown">
+<button type="submit"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></button>
 </form>
 </body>
 </html>
