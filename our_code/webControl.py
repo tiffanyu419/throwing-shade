@@ -20,16 +20,18 @@ class Shades(object):
     @cherrypy.expose
     def up(self):
         #command = "python2 -c 'import control_shades; control_shades.move_up()'"
-        command = "python2 -c 'import control_shades; control_shades.move_up(40)'"
-        Shades.count = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n', '<br>')
-        return "Current state:" + str(Shades.count)
+        command = "python2 -c 'import control_shades; control_shades.move_up(" +str(Shades.count)+")'"
+        result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n', '<br>')
+        ls = result.split("\n")
+        return "Current state:" + ls[1]
 
     @cherrypy.expose
     def down(self):
         #command = "python2 -c 'import control_shades; control_shades.move_down()'"
-        command = "python2 -c 'import control_shades; control_shades.move_down(40)'"
-        Shades.count = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n', '<br>')
-        return "Current state:" + str(Shades.count)
+        command = "python2 -c 'import control_shades; control_shades.move_down("+str(Shades.count)+")'"
+        result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n', '<br>')
+        ls = result.split("\n")
+        return "Current state:" + ls[1]
 
 if __name__=='__main__':
     cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8181})
