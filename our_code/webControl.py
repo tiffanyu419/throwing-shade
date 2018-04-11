@@ -2,36 +2,12 @@ import os, os.path
 import cherrypy
 import subprocess
 
-control_text = """
-<html>
-<head>
-<link href="/static/style.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<html>
-</head>
-<body>
-<form method="get" action="allUp">
-<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
-</form>
-<form method="get"  action="up">
-<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></button>
-</form>
-<form method="get" action="down">
-<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></button>
-</form>
-<form method="get" action="allDown">
-<button  class="btn btn-default" type="submit"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></button>
-</form>
-</body>
-</html>
-"""
-
 class Shades(object):
     current = 0
     max = 80
     @cherrypy.expose
     def index(self):
-        return control_text.format("")
+        return open('index.html')
 
     @cherrypy.expose
     def up(self):
