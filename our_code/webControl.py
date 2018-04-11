@@ -10,17 +10,17 @@ control_text = """
 <html>
 </head>
 <body>
-<form method="get" class="btn btn-default" action="allUp">
-<button type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
+<form method="get" action="allUp">
+<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
 </form>
-<form method="get" class="btn btn-default" action="up">
-<button type="submit"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></button>
+<form method="get"  action="up">
+<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></button>
 </form>
-<form method="get" class="btn btn-default" action="down">
-<button type="submit"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></button>
+<form method="get" action="down">
+<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></button>
 </form>
-<form method="get" class="btn btn-default" action="allDown">
-<button type="submit"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></button>
+<form method="get" action="allDown">
+<button  class="btn btn-default" type="submit"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></button>
 </form>
 </body>
 </html>
