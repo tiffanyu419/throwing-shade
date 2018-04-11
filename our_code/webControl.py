@@ -23,15 +23,15 @@ class Shades(object):
         command = "python2 -c 'import control_shades; control_shades.move_up(" +str(Shades.count)+")'"
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n', '<br>')
         ls = result.split(" ")
-        return "Current state:" + ls
+        return "Current state:" + str(len(ls))
 
     @cherrypy.expose
     def down(self):
         #command = "python2 -c 'import control_shades; control_shades.move_down()'"
         command = "python2 -c 'import control_shades; control_shades.move_down("+str(Shades.count)+")'"
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n', '<br>')
-        ls = result.split("\n")
-        return "Current state:" + ls
+        ls = result.split(" ")
+        return "Current state:" + str(len(ls))
 
 if __name__=='__main__':
     cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8181})
