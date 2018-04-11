@@ -23,7 +23,7 @@ class Shades(object):
         command = "python2 -c 'import control_shades; control_shades.move_up(" +str(Shades.count)+")'"
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n', '<br>')
         ls = result.split()
-        return ls[3][5:]
+        return ls[3][8:]
 
     @cherrypy.expose
     def down(self):
