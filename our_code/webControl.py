@@ -27,7 +27,7 @@ class Shades(object):
 
     @cherrypy.expose
     def up(self):
-        command = "python2 -c 'import control_shades; control_shades.move_up(" +str(Shades.curret)+")'"
+        command = "python2 -c 'import control_shades; control_shades.move_up(" +str(Shades.current)+")'"
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
         ls = result.split()
         Shades.current = int(ls[4])
