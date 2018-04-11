@@ -24,7 +24,7 @@ class Shades(object):
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
         ls = result.split()
         Shade.count = int(ls[4])
-        return str(Shade.count))
+        return str(Shade.count)
 
     @cherrypy.expose
     def down(self):
