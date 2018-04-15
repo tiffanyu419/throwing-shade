@@ -10,7 +10,7 @@ class StringGenerator(object):
     def index(self):
         return """<html>
           <head>
-            <link href="./Public/css/style.css" rel="stylesheet">
+            <link href="home/pi/Public/css/style.css" rel="stylesheet">
           </head>
           <body>
             <form method="get" action="generate">
