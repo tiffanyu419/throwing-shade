@@ -35,7 +35,7 @@ if __name__ == '__main__':
     conf = {
         '/': {
             'tools.sessions.on': True,
-            'tools.staticdir.dir': os.path.abspath("/home/pi/")
+            'tools.staticdir.dir': os.path.abspath("/home/pi")
         },
         '/static': {
             'tools.staticdir.on': True,
