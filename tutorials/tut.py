@@ -35,11 +35,11 @@ if __name__ == '__main__':
     conf = {
         '/': {
             'tools.sessions.on': True,
-            'tools.staticdir.dir': os.path.abspath("/home/pi/Desktop/throwing-shade/")
+            'tools.staticdir.dir': os.path.abspath("/home/pi/")
         },
         '/static': {
             'tools.staticdir.on': True,
-            'tools.staticdir.dir': './tutorials'
+            'tools.staticdir.dir': './Public'
         }
     }
     cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8181})
