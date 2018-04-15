@@ -10,7 +10,7 @@ class StringGenerator(object):
     def index(self):
         return """<html>
           <head>
-            <link href="home/pi/Public/css/style.css" rel="stylesheet">
+            <link href="style.css" rel="stylesheet" type="text/css" />
           </head>
           <body>
             <form method="get" action="generate">
@@ -35,11 +35,11 @@ if __name__ == '__main__':
     conf = {
         '/': {
             'tools.sessions.on': True,
-            'tools.staticdir.dir': os.path.abspath("/home/pi")
+            'tools.staticdir.dir':"/home/pi/Desktop/throwing-shade/tutorials"
         },
         '/static': {
             'tools.staticdir.on': True,
-            'tools.staticfile.filename': os.path.abspath("./Public/css/style.css")
+            'tools.staticfile.filename': "/home/pi/Desktop/throwing-shade/tutorials/style.css")
         }
     }
     cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8181})
