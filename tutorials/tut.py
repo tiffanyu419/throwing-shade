@@ -39,7 +39,7 @@ if __name__ == '__main__':
         },
         '/static': {
             'tools.staticdir.on': True,
-            'tools.staticfile.filename': "/home/pi/Desktop/throwing-shade/tutorials/style.css")
+            'tools.staticfile.filename': "/home/pi/Desktop/throwing-shade/tutorials/style.css"
         }
     }
     cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8181})
