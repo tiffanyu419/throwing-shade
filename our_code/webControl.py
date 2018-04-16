@@ -51,7 +51,6 @@ if __name__=='__main__':
         },
         '/static': {
             'tools.staticdir.on': True,
-            'tools.staticdir.dir': './Desktop/throwing-shade/our_code/css'
         }
     }
     cherrypy.quickstart(Shades(), '/', conf)
