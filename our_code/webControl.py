@@ -43,7 +43,7 @@ class Shades(object):
         return str(Shades.current)
 
 if __name__=='__main__':
-    cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8181})
+    cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8080})
     conf = {
         '/': {
             'tools.sessions.on': True,
