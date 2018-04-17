@@ -4,15 +4,23 @@
   <head>
     <title>E90:Throwing Shade</title>
     <style>
-      body {background-color: powderblue;}
-      .nav_but {justify-content: center; align-items: center;}
+      .nav-bar {background:grey; overflow: hidden;}
+      .nav-bar a {float: left;font-family:"Josefin Sans", sans-serif;display: block;color: black;text-align: center;padding: 14px 16px;text-decoration: none;}
+      .nav-bar a:hover {background-color: silver; color: grey;}
+      .nav_but {text-align: center; background: #333;}
       .button {top: 50%;}
       h1   {color: blue;}
       p    {color: red;}
   </style>
   </head>
-  <body>
-    <div class=nav_but>
+  
+    <div id="nav-bar" class="nav-bar">
+      <a href="#nav_but">MOVE</a></li>
+      <a href="#about"></a></li>
+    </div>
+
+    <div id=nav_but class=nav_but>
+      <h1> THROWING SHADE </h1>
       <form method="get" action="allUp">
         <button class="button btn btn-default" type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
       </form>
@@ -26,5 +34,5 @@
         <button class="button btn btn-default" type="submit"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></button>
       </form>
     </div>
-  </body>
+
 </html>
