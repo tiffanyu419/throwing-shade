@@ -4,7 +4,7 @@ import subprocess
 
 class Shades(object):
     current = 0
-    max = 80
+    max = 1400
     @cherrypy.expose
     def index(self):
         return open('index.html')

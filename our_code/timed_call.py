@@ -2,7 +2,7 @@
 This is a library that contains the implementation of an alarm clock
 that would control the state of the shades
 """
-from control_shades import move_shades
+from control_shades import move_up, move_down
 import time
 
 def control(cur_state, init_state):
@@ -32,7 +32,7 @@ def morning(cur_state, init_state):
 	total = hour_diff*60*60*60+min_diff*60+sec_diff
 	print "Time till wake up: %d secs" %total
 	time.sleep(total)
-	move_shades("up", cur_state, 0)
+	move_up(cur_state)
 	print "Wake up!"
 	return 0
 
@@ -49,7 +49,7 @@ def night(cur_state, init_state):
 	total = hour_diff*60*60*60+min_diff*60+sec_diff
 	print "Rolling down shades in %d secs" %total
 	time.sleep(total)
-	move_shades("down", cur_state, init_state)
+	move_down = (cur_state, init_state)
 	print "Goodnight!"
 	return init_state
 
