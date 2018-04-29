@@ -4,22 +4,19 @@
   <head>
     <title>E90:Throwing Shade</title>
     <style>
-      .nav-bar {background:grey; overflow: hidden;}
-      .nav-bar a {float: left; font-family: sans-serif;display: block;color: black;text-align: center;padding: 14px 16px;text-decoration: none;}
-      .nav-bar a:hover {background-color: silver; color: grey;}
-      .nav_but {height:100vh; justify-content: center; vertical-align: middle;text-align: center; background:LightSkyBlue;}
-      .nav_but h1{font-family: "Roboto";font-size:3.5em; font-style:bold;}
+      @import url(https://fonts.googleapis.com/css?family=Montserrat:400);
+      body {background:#87d37c; text-align:center}
+      .main_content { text-align: center; padding-top: 100px; position: relative; margin: 4em auto 1em;}
+      .main_content h1 {color: dark-grey;font-family: "Montserrat";font-size:4.5em; font-style:bold}
+      .header {padding:30px;}
+      .glyphicon {font-size: 35px;}
       #nav {margin:10px;}
   </style>
   </head>
-
-    <div id="nav-bar" class="nav-bar">
-      <a href="#nav_but">MOVE</a></li>
-      <a href="#about">ALARM</a></li>
-    </div>
-
-    <div id="nav_but" class="nav_but">
-      <h1> Throwing Shade </h1>
+    <section class='main_content'>
+      <div class="header">
+        <h1> Shade Control </h1>
+      </div>
       <form method="get" action="allUp">
         <button id ="nav" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
       </form>
@@ -32,6 +29,5 @@
       <form method="get" action="allDown">
         <button id="nav" class="button btn btn-default" type="submit"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></button>
       </form>
-    </div>
-
+  </section>
 </html>
