@@ -74,4 +74,4 @@ def collect_data():
         #csv.write(res_str)
         count += 1
         time.sleep(60)
-#collect_data()
+

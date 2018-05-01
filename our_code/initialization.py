@@ -6,8 +6,9 @@ import control_shades
 # function to manually initialize the shades
 def initialization():
 	print"To initialize first roll shades all the way up"
-	control_shades.initialize_up()
+	count = control_shades.initialize_up()
 	count = control_shades.initialize_down()
+	print count
 	return count
 
 # function to input a known window length and state of shade

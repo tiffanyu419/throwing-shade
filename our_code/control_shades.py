@@ -52,6 +52,19 @@ def turnOffMotors():
 ##        else:
 ##            print("Invalid Command")
 ##    return cur_state
+def initialize_up():
+	atexit.register(turnOffMotors)
+        myStepper = mh.getStepper(200, 1)
+        myStepper.setSpeed(60)
+        stop = False
+        print("Press enter to move the shade up. Press q when shade is completely up")
+        while (stop == False):
+                c = raw_input(">> ")
+                if c == "q":
+                        stop = True
+                else:
+                        myStepper.step(50, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.MICROSTEP)
+        return 0
 
 # function to roll the shades down to count number of steps to completely roll down shades
 def initialize_down():
