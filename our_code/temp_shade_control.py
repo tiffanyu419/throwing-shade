@@ -28,6 +28,8 @@ def main():
         now = datetime.datetime.now()
         if now.hour < 6:
             locked = 1
+        elif now.hour = 22:
+            new_state = 1
         elif now.hour > 22:
             locked = 1
         else:
@@ -35,7 +37,7 @@ def main():
 
         print("Collecting data")
         #collect temp and find the difference every minute for 30 minutes
-        for i in range(3):
+        for i in range(10):
             print i
             time.sleep(60)
             amb = read_data.read_temp_a()[0]
@@ -45,7 +47,7 @@ def main():
         print ("total: %f" %(sat_amb_diff))
         #calculate the difference between the desired and the ambient temperature
         des_amb_diff = amb - des_temp #negative want it heat up, pos cool down
-        sat_amb_diff = sat_amb_diff/3.0 #negative -> has sun, pos less sun
+        sat_amb_diff = sat_amb_diff/10.0 #negative -> has sun, pos less sun
         print("des_amb: %f sat_amb: %f" %(des_amb_diff, sat_amb_diff))
         # determine new state based on the differences
         if des_amb_diff <= -1 and sat_amb_diff <= -1:
