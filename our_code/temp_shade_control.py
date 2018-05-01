@@ -36,6 +36,7 @@ def main():
         print("Collecting data")
         #collect temp and find the difference every minute for 30 minutes
         for i in range(3):
+            print i
             time.sleep(60)
             amb = read_data.read_temp_a()[0]
             sat = read_data.read_temp_b()[0]
