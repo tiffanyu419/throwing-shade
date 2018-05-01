@@ -100,10 +100,7 @@ def allDown(current, dest):
 
 # function to roll shades up incrementally
 def move_up(count):
-    if (count-40) < 0:
-        steps = count
-    else:
-        steps = 40
+    steps = 50
     atexit.register(turnOffMotors)
     myStepper = mh.getStepper(200, 1)
     myStepper.setSpeed(50)
@@ -114,10 +111,7 @@ def move_up(count):
 
 # function to roll shades up incrementally
 def move_down(count, max):
-    if (count+40) > max:
-        steps = max - count
-    else:
-        steps = 40
+    steps = 40
     atexit.register(turnOffMotors)
     myStepper = mh.getStepper(200, 1)
     myStepper.setSpeed(50)
