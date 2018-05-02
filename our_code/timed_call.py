@@ -6,57 +6,50 @@ from control_shades import allUp, allDown
 import time
 
 def control(cur_state, init_state):
-	print "If you want to set wake up time, please type 'w'"
-	print "If you want to set sleep time, please type 's'"
-	print "If you want to quit, please type 'q'"
-	command = raw_input(">> ")
-	if command == 'w':
-		cur_state = morning(cur_state, init_state)
-	elif command == 's':
-		cur_state = night(cur_state, init_state)
-	elif command == 'q':
-		return cur_state
+	print "Setting up your wake up and sleep time!"
+	time_up = morning(cur_state, init_state)
+	print "%d secs till wake up" %time_up
+	time_down = night(cur_state, init_state)
+	print "%d secs till sleep" %time_down
+	if time_up < time_down:
+		diff = time_down - time_up
+		sleep(time_up)
+		allUp(cur_state, 0)
+		sleep(diff)
+		allDown(0, init_state)
 	else:
-		print "Invalid input"
+		diff = time_up - time_down
+		sleep(time_down)
+		allDown(cur_state, init_state)
+		sleep(diff)
+		allUp(init_state, 0)
 
-def morning(cur_state, init_state):
-	wake_up = raw_input("Please enter your wake up time in military time: ")
+def calc_time_diff(time):
+	hour = int(time[:2])
+	minutes = int(time[2:])
 	local_time = time.localtime(time.time())
-	hour = int(wake_up[:2])
-	minutes = int(wake_up[2:])
 	print "Current time: %d : %d : %d" %(local_time.tm_hour, local_time.tm_min, local_time.tm_sec)
-	print "Wake up time: %d : %d : 00" %(hour, minutes)
 	hour_diff = hour - local_time.tm_hour
 	if hour_diff < 0:
-		hour_diff += 23
+		hour_diff += 24
 	min_diff = minutes - local_time.tm_min - 1
 	if min_diff == 0:
-		hour_diff += 1
-	elif min_diff < 0:
+		hour_diff -= 1
+	if min_diff < 0:
 		min_diff += 60
 	sec_diff = 60 - local_time.tm_sec
-	print hour_diff
-	print min_diff
+	if sec_diff == 0:
+		min_diff -= 1
+	if sec_diff < 0:
+		sec_diff += 60
 	total = hour_diff*60*60+min_diff*60+sec_diff
-	print "Time till wake up: %d secs" %total
-	time.sleep(total)
-	allUp(cur_state, 0)
-	print "Wake up!"
-	return 0
+
+	return total
+
+def morning(cur_state, init_state):
+	input_time = raw_input("Please enter your wake up time in military time: ")
+	return calc_time_diff(input_time)
 
 def night(cur_state, init_state):
-	wake_up = raw_input("Please enter your sleep time in military time: ")
-	local_time = time.localtime(time.time())
-	hour = int(wake_up[:2])
-	minutes = int(wake_up[2:])
-	print "Current time: %d : %d : %d" %(local_time.tm_hour, local_time.tm_min, local_time.tm_sec)
-	print "Sleep time: %d : %d : 00" %(hour, minutes)
-	hour_diff = hour - local_time.tm_hour
-	min_diff = minutes - local_time.tm_min - 1
-	sec_diff = 60 - local_time.tm_sec
-	total = hour_diff*60*60*60+min_diff*60+sec_diff
-	print "Rolling down shades in %d secs" %total
-	time.sleep(total)
-	allDown(cur_state, init_state)
-	print "Goodnight!"
-	return init_state
+	input_time = raw_input("Please enter your sleep time in military time: ")
+	return calc_time_diff(input_time)

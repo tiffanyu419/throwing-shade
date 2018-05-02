@@ -22,14 +22,12 @@ def main():
     des_amb_diff = 0
     sat_amb_diff = 0
     # desired temperature
-    des_temp = 23
+    des_temp = 24
 
     while (1):
         now = datetime.datetime.now()
         if now.hour < 6:
             locked = 1
-        elif now.hour == 22:
-            new_state = 1
         elif now.hour > 22:
             locked = 1
         else:
