@@ -40,7 +40,7 @@ def morning(cur_state, init_state):
 	total = hour_diff*60*60+min_diff*60+sec_diff
 	print "Time till wake up: %d secs" %total
 	time.sleep(total)
-	move_up(cur_state)
+	allUp(cur_state, 0)
 	print "Wake up!"
 	return 0
 
@@ -57,6 +57,6 @@ def night(cur_state, init_state):
 	total = hour_diff*60*60*60+min_diff*60+sec_diff
 	print "Rolling down shades in %d secs" %total
 	time.sleep(total)
-	move_down = (cur_state, init_state)
+	allDown(cur_state, init_state)
 	print "Goodnight!"
 	return init_state
