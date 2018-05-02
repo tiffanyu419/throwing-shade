@@ -18,7 +18,7 @@ def control(cur_state, init_state):
 		return cur_state
 	else:
 		print "Invalid input"
-	
+
 def morning(cur_state, init_state):
 	wake_up = raw_input("Please enter your wake up time in military time: ")
 	local_time = time.localtime(time.time())
@@ -27,7 +27,13 @@ def morning(cur_state, init_state):
 	print "Current time: %d : %d : %d" %(local_time.tm_hour, local_time.tm_min, local_time.tm_sec)
 	print "Wake up time: %d : %d : 00" %(hour, minutes)
 	hour_diff = hour - local_time.tm_hour
+	if hour_diff < 0:
+		hour_diff += 23
 	min_diff = minutes - local_time.tm_min - 1
+	if min_diff == 0:
+		hour_diff += 1
+	elif min_diff < 0:
+		min_diff += 60
 	sec_diff = 60 - local_time.tm_sec
 	total = hour_diff*60*60*60+min_diff*60+sec_diff
 	print "Time till wake up: %d secs" %total
@@ -52,4 +58,3 @@ def night(cur_state, init_state):
 	move_down = (cur_state, init_state)
 	print "Goodnight!"
 	return init_state
-
