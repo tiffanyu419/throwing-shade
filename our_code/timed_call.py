@@ -2,7 +2,7 @@
 This is a library that contains the implementation of an alarm clock
 that would control the state of the shades
 """
-from control_shades import move_up, move_down
+from control_shades import allUp, allDown
 import time
 
 def control(cur_state, init_state):
