@@ -35,7 +35,9 @@ def morning(cur_state, init_state):
 	elif min_diff < 0:
 		min_diff += 60
 	sec_diff = 60 - local_time.tm_sec
-	total = hour_diff*60*60*60+min_diff*60+sec_diff
+	print hour_diff
+	print min_diff
+	total = hour_diff*60*60+min_diff*60+sec_diff
 	print "Time till wake up: %d secs" %total
 	time.sleep(total)
 	move_up(cur_state)
