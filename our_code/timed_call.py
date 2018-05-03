@@ -24,9 +24,9 @@ def control(cur_state, init_state):
 		sleep(diff)
 		allUp(init_state, 0)
 
-def calc_time_diff(time):
-	hour = int(time[:2])
-	minutes = int(time[2:])
+def calc_time_diff(set_time):
+	hour = int(set_time[:2])
+	minutes = int(set_time[2:])
 	local_time = time.localtime(time.time())
 	print "Current time: %d : %d : %d" %(local_time.tm_hour, local_time.tm_min, local_time.tm_sec)
 	hour_diff = hour - local_time.tm_hour
