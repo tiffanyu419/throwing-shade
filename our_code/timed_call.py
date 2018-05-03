@@ -33,12 +33,12 @@ def calc_time_diff(set_time):
 	if hour_diff < 0:
 		hour_diff += 24
 	min_diff = minutes - local_time.tm_min - 1
-	if min_diff == 0:
+	if min_diff != 0:
 		hour_diff -= 1
 	if min_diff < 0:
 		min_diff += 60
 	sec_diff = 60 - local_time.tm_sec
-	if sec_diff == 0:
+	if sec_diff != 0:
 		min_diff -= 1
 	if sec_diff < 0:
 		sec_diff += 60
