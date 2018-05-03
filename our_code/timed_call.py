@@ -13,15 +13,15 @@ def control(cur_state, init_state):
 	print "%d secs till sleep" %time_down
 	if time_up < time_down:
 		diff = time_down - time_up
-		sleep(time_up)
+		time.sleep(time_up)
 		allUp(cur_state, 0)
-		sleep(diff)
+		time.sleep(diff)
 		allDown(0, init_state)
 	else:
 		diff = time_up - time_down
-		sleep(time_down)
+		time.sleep(time_down)
 		allDown(cur_state, init_state)
-		sleep(diff)
+		time.sleep(diff)
 		allUp(init_state, 0)
 
 def calc_time_diff(set_time):
