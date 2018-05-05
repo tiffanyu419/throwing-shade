@@ -3,7 +3,7 @@ import cherrypy
 import subprocess
 
 class Shades(object):
-    current = 0
+    current = 2400
     max = 2400
     @cherrypy.expose
     def index(self):
