@@ -48,13 +48,13 @@ def main():
         sat_amb_diff = sat_amb_diff/10.0 #negative -> has sun, pos less sun
         print("des_amb: %f sat_amb: %f" %(des_amb_diff, sat_amb_diff))
         # determine new state based on the differences
-        if des_amb_diff <= -1 and sat_amb_diff <= -0.5:
+        if des_amb_diff <= -1 and sat_amb_diff <= -0.1:
             new_state = 1
-        elif des_amb_diff > 1 and sat_amb_diff > 0.5:
+        elif des_amb_diff > 1 and sat_amb_diff > 0.1:
             new_state = 0
-        elif des_amb_diff > 1 and sat_amb_diff < -0.5:
+        elif des_amb_diff > 1 and sat_amb_diff < -0.1:
             new_state = 0
-        elif des_amb_diff < -1 and sat_amb_diff > 0.5:
+        elif des_amb_diff < -1 and sat_amb_diff > 0.1:
             new_state = 1
 
         print("lock: %d new_state: %d state: %d" %(locked, new_state, state))
