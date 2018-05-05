@@ -48,7 +48,7 @@ def main():
         sat_amb_diff = sat_amb_diff/10.0 #negative -> has sun, pos less sun
         print("des_amb: %f sat_amb: %f" %(des_amb_diff, sat_amb_diff))
         # determine new state based on the differences
-        if des_amb_diff <= -1 and sat_amb_diff <= -0.1:
+        if des_amb_diff <= -1 and sat_amb_diff <= -0.0001:
             new_state = 1
         elif des_amb_diff > 1 and sat_amb_diff > 0.1:
             new_state = 0
