@@ -22,7 +22,7 @@ def main():
     des_amb_diff = 0
     sat_amb_diff = 0
     # desired temperature
-    des_temp = 21
+    des_temp = 28
 
     while (1):
         now = datetime.datetime.now()
