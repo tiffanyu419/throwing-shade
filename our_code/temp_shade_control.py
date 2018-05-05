@@ -22,7 +22,7 @@ def main():
     des_amb_diff = 0
     sat_amb_diff = 0
     # desired temperature
-    des_temp = 24
+    des_temp = 21
 
     while (1):
         now = datetime.datetime.now()
@@ -37,7 +37,7 @@ def main():
         #collect temp and find the difference every minute for 30 minutes
         for i in range(10):
             print i
-            time.sleep(60)
+            time.sleep(3)
             amb = read_data.read_temp_a()[0]
             sat = read_data.read_temp_b()[0]
             sat_amb_diff += (amb-sat)
